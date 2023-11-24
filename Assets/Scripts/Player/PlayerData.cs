@@ -76,9 +76,14 @@ public class PlayerData : ScriptableObject
 	public float DashRefillTime;
 	[Space(5)]
 	[Range(0.01f, 0.5f)] public float DashInputBufferTime;
-	
 
-    private void OnValidate()
+	[Space(20)]
+
+	[Header("Glide")]
+	public float MaxGlideSpeed;
+
+
+	private void OnValidate()
     {
 		GravityStrength = -(2 * JumpHeight) / (JumpTimeToApex * JumpTimeToApex);
 		GravityScale = GravityStrength / Physics2D.gravity.y;

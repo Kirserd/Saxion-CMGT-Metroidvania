@@ -10,6 +10,14 @@ public class PlayerMovement : MonoBehaviour
 	#region COMPONENTS
     public Rigidbody2D Rigidbody { get; private set; }
 	public PlayerAnimator AnimatorHandler { get; private set; }
+
+	#endregion
+
+	#region LOCKS
+	public bool AirJumpUnlocked;
+	public bool DashUnlocked;
+	public bool WallJumpUnlocked;
+	public bool GlideUnlocked;
 	#endregion
 
 	#region STATE PARAMETERS
@@ -18,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool IsWallJumping { get; private set; }
 	public bool IsDashing { get; private set; }
 	public bool IsSliding { get; private set; }
+	public bool IsGliding { get; private set; }
 
 	public float LastOnGroundTime { get; private set; }
 	public float LastOnWallTime { get; private set; }
@@ -31,11 +40,12 @@ public class PlayerMovement : MonoBehaviour
 	private float _wallJumpStartTime;
 	private int _lastWallJumpDir;
 
+	private bool _isFalling;
+
 	private int _dashesLeft;
 	private bool _dashRefilling;
 	private Vector2 _lastDashDir;
 	private bool _isDashAttacking;
-
 	#endregion
 
 	#region INPUT PARAMETERS
@@ -100,6 +110,11 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.C))
 			OnDashInput();
 
+		if (CanGlide() && Input.GetKey(KeyCode.Z))
+			OnGlideInput();
+		else
+			OnGlideStopInput();
+
 		#endregion
 
 		#region COLLISION CHECKS
@@ -142,11 +157,14 @@ public class PlayerMovement : MonoBehaviour
 			_isJumpFalling = false;
 		}
 
-		if (!IsDashing)
+		if(LastOnGroundTime <= 0 && _jumpsLeft == Data.JumpAmount)
+			_jumpsLeft--;
+
+		if (!IsDashing && LastPressedJumpTime > 0)
 		{
-			if (_jumpsLeft == Data.JumpAmount && LastPressedJumpTime > 0)
+			if (CanJump())
 			{
-				Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, 0);
+				Rigidbody.velocity *= Vector2.right;
 				_jumpsLeft--;
 				IsJumping = true;
 				IsWallJumping = false;
@@ -156,8 +174,9 @@ public class PlayerMovement : MonoBehaviour
 
 				AnimatorHandler._startedJumping = true;
 			}
-			else if (CanWallJump() && LastPressedJumpTime > 0)
+			else if (CanWallJump())
 			{
+				Rigidbody.velocity *= Vector2.right;
 				IsWallJumping = true;
 				IsJumping = false;
 				_isJumpCut = false;
@@ -168,9 +187,9 @@ public class PlayerMovement : MonoBehaviour
 
 				WallJump(_lastWallJumpDir);
 			}
-			else if(CanJump() && LastPressedJumpTime > 0)
+			else if(CanAirJump())
 			{
-				Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, 0);
+				Rigidbody.velocity *= Vector2.right;
 				_jumpsLeft--;
 				IsJumping = true;
 				IsWallJumping = false;
@@ -189,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
 			Sleep(Data.DashSleepTime); 
 
 			if (_moveInput != Vector2.zero)
-				_lastDashDir = _moveInput;
+				_lastDashDir = _moveInput * Vector2.right;
 			else
 				_lastDashDir = IsFacingRight ? Vector2.right : Vector2.left;
 
@@ -210,9 +229,17 @@ public class PlayerMovement : MonoBehaviour
 		#endregion
 
 		#region GRAVITY
+		_isFalling = Rigidbody.velocity.y < 0;
+
 		if (!_isDashAttacking)
 		{
-			if (IsSliding)
+			if (IsGliding)
+			{
+				SetGravityScale(Data.GravityScale);
+				Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Mathf.Max(Rigidbody.velocity.y, -Data.MaxGlideSpeed));
+			}
+
+			else if (IsSliding)
 				SetGravityScale(0);
 
 			else if (Rigidbody.velocity.y < 0 && _moveInput.y < 0)
@@ -267,10 +294,13 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	public void OnDashInput() => LastPressedDashTime = Data.DashInputBufferTime;
-    #endregion
 
-    #region GENERAL
-    public void SetGravityScale(float scale) => Rigidbody.gravityScale = scale;
+	public void OnGlideInput() => IsGliding = LastPressedJumpTime <= 0;
+	public void OnGlideStopInput() => IsGliding = false;
+	#endregion
+
+	#region GENERAL
+	public void SetGravityScale(float scale) => Rigidbody.gravityScale = scale;
 	private void Sleep(float duration) => StartCoroutine(nameof(PerformSleep), duration);
 
 	private IEnumerator PerformSleep(float duration)
@@ -436,9 +466,10 @@ public class PlayerMovement : MonoBehaviour
 			Turn();
 	}
 
-    private bool CanJump() => _jumpsLeft > 0;
+    private bool CanJump() => LastOnGroundTime > 0 && _jumpsLeft == Data.JumpAmount;
+	private bool CanAirJump() => AirJumpUnlocked && _jumpsLeft > 0;
 
-	private bool CanWallJump() => LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
+	private bool CanWallJump() => WallJumpUnlocked && LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
 								(LastOnWallRightTime > 0 && _lastWallJumpDir == 1) || (LastOnWallLeftTime > 0 && _lastWallJumpDir == -1));
 
 	private bool CanJumpCut() => IsJumping && Rigidbody.velocity.y > 0;
@@ -447,18 +478,23 @@ public class PlayerMovement : MonoBehaviour
 
 	private bool CanDash()
 	{
+		if (!DashUnlocked)
+			return false;
+
 		if (!IsDashing && _dashesLeft < Data.DashAmount && LastOnGroundTime > 0 && !_dashRefilling)
 			StartCoroutine(nameof(RefillDash), 1);
 
 		return _dashesLeft > 0;
 	}
 
-	public bool CanSlide() => (LastOnWallTime > 0 && !IsJumping && !IsWallJumping && !IsDashing && LastOnGroundTime <= 0);
-    #endregion
+	private bool CanSlide() => WallJumpUnlocked && (LastOnWallTime > 0 && !IsJumping && !IsWallJumping && !IsDashing && LastOnGroundTime <= 0);
+
+	private bool CanGlide() => GlideUnlocked && _isFalling;
+	#endregion
 
 
-    #region DEBUG
-    private void OnDrawGizmosSelected()
+	#region DEBUG
+	private void OnDrawGizmosSelected()
     {
 		Gizmos.color = Color.green;
 		Gizmos.DrawWireCube(_groundCheckPoint.position, _groundCheckSize);
