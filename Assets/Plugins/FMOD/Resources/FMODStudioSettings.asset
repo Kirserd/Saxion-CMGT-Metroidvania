@@ -443,6 +443,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Background_Music
+  - Environmental
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

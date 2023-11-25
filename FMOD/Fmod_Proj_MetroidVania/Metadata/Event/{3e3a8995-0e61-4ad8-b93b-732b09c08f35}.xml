@@ -60,7 +60,7 @@
 	<object class="MarkerTrack" id="{da113f3a-0223-48a4-87ea-7fde78e8fa99}" />
 	<object class="GroupTrack" id="{84f17ccd-d0fe-4e3b-b9f8-a1b868f64bc5}">
 		<relationship name="modules">
-			<destination>{db41c8b1-871d-403a-b273-54aada0bdbef}</destination>
+			<destination>{06fade62-81fa-43d4-9d28-1d1907de486c}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{9df70974-e6dc-4414-867e-f3da5bef2855}</destination>
@@ -68,13 +68,16 @@
 	</object>
 	<object class="Timeline" id="{f82c5e65-09ac-422f-be08-49db1a066d0a}">
 		<relationship name="modules">
-			<destination>{db41c8b1-871d-403a-b273-54aada0bdbef}</destination>
+			<destination>{06fade62-81fa-43d4-9d28-1d1907de486c}</destination>
 		</relationship>
 		<relationship name="markers">
-			<destination>{1b671a2c-83a5-446b-922b-99fdb528ba6f}</destination>
+			<destination>{2638ece7-4fe4-48a6-b114-80b6bdb856b6}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{5bedc5c4-f6d8-4915-9cea-9ee0bee81ed3}">
+		<property name="volume">
+			<value>-8</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{1929d034-f202-494b-bacd-068d5905066d}</destination>
 		</relationship>
@@ -91,7 +94,7 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ebff787a-e14e-4362-b656-d1837eb0b157}" />
-	<object class="SingleSound" id="{db41c8b1-871d-403a-b273-54aada0bdbef}">
+	<object class="SingleSound" id="{06fade62-81fa-43d4-9d28-1d1907de486c}">
 		<property name="length">
 			<value>24.005646258503401</value>
 		</property>
@@ -113,7 +116,7 @@
 			<destination>{5bedc5c4-f6d8-4915-9cea-9ee0bee81ed3}</destination>
 		</relationship>
 	</object>
-	<object class="LoopRegion" id="{1b671a2c-83a5-446b-922b-99fdb528ba6f}">
+	<object class="LoopRegion" id="{2638ece7-4fe4-48a6-b114-80b6bdb856b6}">
 		<property name="position">
 			<value>0</value>
 		</property>
@@ -193,7 +196,6 @@
 		<property name="name">
 			<value>SourcePos</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -202,7 +204,6 @@
 		<property name="name">
 			<value>OverallGain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>
@@ -531,7 +532,6 @@
 		<property name="name">
 			<value>SimOutputs</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>0</value>
 		</property>
@@ -548,7 +548,6 @@
 		<property name="name">
 			<value>DistRange</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>

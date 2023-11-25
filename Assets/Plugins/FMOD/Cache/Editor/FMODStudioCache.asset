@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5494722087682078540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Environmental.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Environmental.bank
+  Name: Environmental
+  StudioPath: bank:/Environmental
+  lastModified: 638365438198774839
+  FileSizes:
+  - Name: Desktop
+    Value: 675168
+  Exists: 1
 --- !u!114 &-4552334442124485588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,6 +47,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 24005
+--- !u!114 &-3784280351675292556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Bats_Waterfall
+  m_EditorClassIdentifier: 
+  Path: event:/Bats_Waterfall
+  Guid:
+    Data1: -1878000971
+    Data2: 1249274546
+    Data3: 1751419788
+    Data4: -1156471775
+  Banks:
+  - {fileID: -5494722087682078540}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 69565
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,14 +90,16 @@ MonoBehaviour:
   - {fileID: 2705313159298491877}
   - {fileID: 5728711516844878926}
   - {fileID: 2964843972799280930}
+  - {fileID: -5494722087682078540}
   EditorEvents:
   - {fileID: -4552334442124485588}
+  - {fileID: -3784280351675292556}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2964843972799280930}
   StringsBanks:
   - {fileID: 2705313159298491877}
-  cacheTime: 638365407849558658
+  cacheTime: 638365438198774839
   cacheVersion: 131607
 --- !u!114 &2705313159298491877
 MonoBehaviour:
@@ -67,10 +116,10 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638365394856395866
+  lastModified: 638365435134771623
   FileSizes:
   - Name: Desktop
-    Value: 816
+    Value: 918
   Exists: 1
 --- !u!114 &2964843972799280930
 MonoBehaviour:
@@ -87,7 +136,7 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638365394856381145
+  lastModified: 638365435134761504
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -107,7 +156,7 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Background_Music.bank
   Name: Background_Music
   StudioPath: bank:/Background_Music
-  lastModified: 638365407849558658
+  lastModified: 638365438198571604
   FileSizes:
   - Name: Desktop
     Value: 362464
