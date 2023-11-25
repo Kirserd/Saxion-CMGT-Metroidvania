@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerAnimator))]
 public class PlayerMovement : MonoBehaviour
 {
 	public PlayerData Data;
@@ -490,11 +489,11 @@ public class PlayerMovement : MonoBehaviour
 	private bool CanSlide() => WallJumpUnlocked && (LastOnWallTime > 0 && !IsJumping && !IsWallJumping && !IsDashing && LastOnGroundTime <= 0);
 
 	private bool CanGlide() => GlideUnlocked && _isFalling;
-	#endregion
+    #endregion
 
 
-	#region DEBUG
-	private void OnDrawGizmosSelected()
+    #region DEBUG
+    private void OnDrawGizmosSelected()
     {
 		Gizmos.color = Color.green;
 		Gizmos.DrawWireCube(_groundCheckPoint.position, _groundCheckSize);

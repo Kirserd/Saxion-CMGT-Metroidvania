@@ -99,7 +99,7 @@ public class CameraMovement : MonoBehaviour
     #endregion
 
     private void Start() => RefreshPlayerLink();
-    private void RefreshPlayerLink() => Player = GameObject.FindGameObjectWithTag("Player").transform;
+    private void RefreshPlayerLink() => Player = PlayerLinks.instance.gameObject.transform;
 
     private void LateUpdate()
     {
