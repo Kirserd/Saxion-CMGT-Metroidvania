@@ -125,16 +125,25 @@ public class ControlsActions : MonoBehaviour
     public delegate void OnControlChangedHandler(InputAction action);
     public OnControlChangedHandler OnControlChanged;
 
+    [SerializeField]
+    private GameObject _messagePrefab;
+
     private void Awake() => instance = this;
 
     public void ChangeBinding(int action)
     {
-        OnControlChanged?.Invoke((InputAction)action);
+        ShowChangeBindingMessage(action, false);
     }
 
     public void ChangeAltBinding(int action)
     {
-        OnControlChanged?.Invoke((InputAction)action);
+        ShowChangeBindingMessage(action, true);
+    }
+
+    private void ShowChangeBindingMessage(int action, bool isAlt)
+    {
+        GameObject message = Instantiate(_messagePrefab, GameObject.FindGameObjectWithTag("Messages").transform);
+        message.GetComponent<WaitForButtonMap>().SetMappingInfo(this, action, isAlt);
     }
 
     public void Apply()

@@ -94,22 +94,24 @@ public class PlayerMovement : MonoBehaviour
 		#endregion
 
 		#region INPUT HANDLER
-		_moveInput.x = Input.GetAxisRaw("Horizontal");
-		_moveInput.y = Input.GetAxisRaw("Vertical");
+		_moveInput.x = Input.GetKey(Controls.Get(InputAction.Right)) || Input.GetKey(Controls.GetAlt(InputAction.Right)) ? 1f :
+					   Input.GetKey(Controls.Get(InputAction.Left)) || Input.GetKey(Controls.GetAlt(InputAction.Left)) ? -1f : 0f ;
+		_moveInput.y = Input.GetKey(Controls.Get(InputAction.Up)) || Input.GetKey(Controls.GetAlt(InputAction.Up)) ? 1f :
+					   Input.GetKey(Controls.Get(InputAction.Down)) || Input.GetKey(Controls.GetAlt(InputAction.Down)) ? -1f : 0f;
 
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
 
-		if (Input.GetKeyDown(KeyCode.Z))
+		if (Input.GetKeyDown(Controls.Get(InputAction.Jump)) || Input.GetKeyDown(Controls.GetAlt(InputAction.Jump)))
 			OnJumpInput();
 
-		if (Input.GetKeyUp(KeyCode.Z))
+		if (Input.GetKeyUp(Controls.Get(InputAction.Jump)) || Input.GetKeyUp(Controls.GetAlt(InputAction.Jump)))
 			OnJumpUpInput();
 
-		if (Input.GetKeyDown(KeyCode.C))
+		if (Input.GetKeyDown(Controls.Get(InputAction.Dash)) || Input.GetKeyDown(Controls.GetAlt(InputAction.Dash)))
 			OnDashInput();
 
-		if (CanGlide() && Input.GetKey(KeyCode.Z))
+		if (CanGlide() && Input.GetKey(Controls.Get(InputAction.Jump)) || Input.GetKey(Controls.GetAlt(InputAction.Jump)))
 			OnGlideInput();
 		else
 			OnGlideStopInput();
@@ -129,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
             }		
 
 			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)
-					|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)) && !IsWallJumping)
+				|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)) && !IsWallJumping)
 				LastOnWallRightTime = Data.CoyoteTime;
 
 			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)

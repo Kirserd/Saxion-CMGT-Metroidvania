@@ -11,7 +11,7 @@ public class PlayerInteractor : MonoBehaviour
         _closest = TakeClosest();
 
         #region INPUT HANDLER
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(Controls.Get(InputAction.Up)) || Input.GetKeyDown(Controls.GetAlt(InputAction.Up)))
             OnInteract();
 
         #endregion
