@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Environmental.bank
   Name: Environmental
   StudioPath: bank:/Environmental
-  lastModified: 638365441144398213
+  lastModified: 638365438198774839
   FileSizes:
   - Name: Desktop
     Value: 675168
@@ -99,7 +99,7 @@ MonoBehaviour:
   - {fileID: 2964843972799280930}
   StringsBanks:
   - {fileID: 2705313159298491877}
-  cacheTime: 638365441144543425
+  cacheTime: 638365438198774839
   cacheVersion: 131607
 --- !u!114 &2705313159298491877
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638365441144543425
+  lastModified: 638365435134771623
   FileSizes:
   - Name: Desktop
     Value: 918
@@ -136,7 +136,7 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638365441144513457
+  lastModified: 638365435134761504
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -156,7 +156,7 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Background_Music.bank
   Name: Background_Music
   StudioPath: bank:/Background_Music
-  lastModified: 638365441122418746
+  lastModified: 638365438198571604
   FileSizes:
   - Name: Desktop
     Value: 362464
