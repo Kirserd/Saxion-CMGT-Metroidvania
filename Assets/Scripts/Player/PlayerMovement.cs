@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 	#endregion
 
 	#region STATE PARAMETERS
+	public bool IsAttacking { get; set; }
 	public bool IsFacingRight { get; private set; }
 	public bool IsJumping { get; private set; }
 	public bool IsWallJumping { get; private set; }
@@ -83,8 +84,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
-        #region TIMERS
-        LastOnGroundTime -= Time.deltaTime;
+		#region TIMERS
+		LastOnGroundTime -= Time.deltaTime;
 		LastOnWallTime -= Time.deltaTime;
 		LastOnWallRightTime -= Time.deltaTime;
 		LastOnWallLeftTime -= Time.deltaTime;
@@ -94,27 +95,31 @@ public class PlayerMovement : MonoBehaviour
 		#endregion
 
 		#region INPUT HANDLER
+
 		_moveInput.x = Input.GetKey(Controls.Get(InputAction.Right)) || Input.GetKey(Controls.GetAlt(InputAction.Right)) ? 1f :
-					   Input.GetKey(Controls.Get(InputAction.Left)) || Input.GetKey(Controls.GetAlt(InputAction.Left)) ? -1f : 0f ;
+					   Input.GetKey(Controls.Get(InputAction.Left)) || Input.GetKey(Controls.GetAlt(InputAction.Left)) ? -1f : 0f;
 		_moveInput.y = Input.GetKey(Controls.Get(InputAction.Up)) || Input.GetKey(Controls.GetAlt(InputAction.Up)) ? 1f :
 					   Input.GetKey(Controls.Get(InputAction.Down)) || Input.GetKey(Controls.GetAlt(InputAction.Down)) ? -1f : 0f;
 
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
 
-		if (Input.GetKeyDown(Controls.Get(InputAction.Jump)) || Input.GetKeyDown(Controls.GetAlt(InputAction.Jump)))
-			OnJumpInput();
+		if (!IsAttacking)
+		{
+			if (Input.GetKeyDown(Controls.Get(InputAction.Jump)) || Input.GetKeyDown(Controls.GetAlt(InputAction.Jump)))
+				OnJumpInput();
 
-		if (Input.GetKeyUp(Controls.Get(InputAction.Jump)) || Input.GetKeyUp(Controls.GetAlt(InputAction.Jump)))
-			OnJumpUpInput();
+			if (Input.GetKeyUp(Controls.Get(InputAction.Jump)) || Input.GetKeyUp(Controls.GetAlt(InputAction.Jump)))
+				OnJumpUpInput();
 
-		if (Input.GetKeyDown(Controls.Get(InputAction.Dash)) || Input.GetKeyDown(Controls.GetAlt(InputAction.Dash)))
-			OnDashInput();
+			if (Input.GetKeyDown(Controls.Get(InputAction.Dash)) || Input.GetKeyDown(Controls.GetAlt(InputAction.Dash)))
+				OnDashInput();
 
-		if (CanGlide() && Input.GetKey(Controls.Get(InputAction.Jump)) || Input.GetKey(Controls.GetAlt(InputAction.Jump)))
-			OnGlideInput();
-		else
-			OnGlideStopInput();
+			if (CanGlide() && Input.GetKey(Controls.Get(InputAction.Jump)) || Input.GetKey(Controls.GetAlt(InputAction.Jump)))
+				OnGlideInput();
+			else
+				OnGlideStopInput();
+		}
 
 		#endregion
 
@@ -455,13 +460,53 @@ public class PlayerMovement : MonoBehaviour
 
 		Rigidbody.AddForce(movement * Vector2.up);
 	}
-    #endregion
+	#endregion
 
-    #endregion
+	#region KNOCKBACK
+	public void Knockback(Vector2 dir)
+    {
+		IsDashing = true;
+		IsJumping = false;
+		IsWallJumping = false;
+		_isJumpCut = false;
+
+		StartCoroutine(nameof(StartKnockback), dir);
+	}
+	private IEnumerator StartKnockback(Vector2 dir)
+	{
+		float startTime = Time.time;
+
+		_isDashAttacking = true;
+
+		SetGravityScale(0);
+
+		while (Time.time - startTime <= Data.KnockbackAttackTime)
+		{
+			Rigidbody.velocity = dir.normalized * Data.KnockbackSpeed;
+			yield return null;
+		}
+
+		startTime = Time.time;
+
+		_isDashAttacking = false;
+
+		SetGravityScale(Data.GravityScale);
+		Rigidbody.velocity = Data.KnockbackEndSpeed * dir.normalized;
+
+		while (Time.time - startTime <= Data.KnockbackEndTime)
+		{
+			yield return null;
+		}
+
+		IsDashing = false;
+	}
+	#endregion
+
+	#endregion
 
 
-    #region CHECKS
-    public void CheckDirectionToFace(bool isMovingRight)
+	#region CHECKS
+	public void CheckDirectionToFace(bool isMovingRight)
 	{
 		if (isMovingRight != IsFacingRight)
 			Turn();
@@ -482,7 +527,7 @@ public class PlayerMovement : MonoBehaviour
 		if (!DashUnlocked)
 			return false;
 
-		if (!IsDashing && _dashesLeft < Data.DashAmount && LastOnGroundTime > 0 && !_dashRefilling)
+		if (!IsDashing && _dashesLeft < Data.DashAmount && !_dashRefilling)
 			StartCoroutine(nameof(RefillDash), 1);
 
 		return _dashesLeft > 0;

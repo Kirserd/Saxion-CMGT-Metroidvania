@@ -56,4 +56,6 @@ public class PlayerAnimator : MonoBehaviour
         _animator.SetFloat("Vel Y", _movement.Rigidbody.velocity.y);
         _animator.SetFloat("Vel X", _movement.Rigidbody.velocity.x);
     }
+
+    public void SetDeathState() => _animator.SetTrigger("Death");
 }

@@ -79,6 +79,16 @@ public class PlayerData : ScriptableObject
 
 	[Space(20)]
 
+	[Header("Knockback")]
+	public float KnockbackSpeed;
+	[Space(5)]
+	public float KnockbackAttackTime;
+	[Space(5)]
+	public float KnockbackEndTime;
+	public Vector2 KnockbackEndSpeed;
+
+	[Space(20)]
+
 	[Header("Glide")]
 	public float MaxGlideSpeed;
 
