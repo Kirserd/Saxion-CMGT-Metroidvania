@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerCombat : Damageable
 {
 	[SerializeField]
+	private Attack _attack;
+	[SerializeField]
 	private float _attackDamage;
 	[SerializeField]
 	private float _attackCooldown;
@@ -12,9 +14,6 @@ public class PlayerCombat : Damageable
 	[Space(5)]
 	[SerializeField]
 	private bool _weaponEquipped;
-
-	[SerializeField]
-	private Attack _attack;
 
 	private Vector2 _moveInput;
 	private bool _isOnCD;
@@ -34,7 +33,24 @@ public class PlayerCombat : Damageable
         #endregion
     }
 
-	private void OnAttackInput()
+	private void OnCollisionStay2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Enemy"))
+			DealDamage(4, collision.transform.position);
+	}
+
+	public override bool DealDamage(float amount, Vector3 callerPosition)
+    {
+        bool dealtDamage = base.DealDamage(amount, callerPosition);
+		if (dealtDamage)
+		{
+			Vector2 knockbackDirection = (transform.position - callerPosition).normalized;
+			PlayerLinks.instance.PlayerMovement.Knockback(knockbackDirection * new Vector2(3, 0.5f));
+		}
+		return dealtDamage;
+	}
+
+    private void OnAttackInput()
     {
 		if (!_weaponEquipped || _isOnCD || PlayerLinks.instance.PlayerMovement.IsDashing)
 			return;
@@ -44,12 +60,16 @@ public class PlayerCombat : Damageable
 		
 		if (_moveInput == Vector2.zero)
 			normalizedMoveInput = (Vector2.right * transform.localScale.x).normalized;
+		else if(_moveInput.y != 0)
+			normalizedMoveInput = _moveInput * Vector2.up;
 		else
-			normalizedMoveInput = _moveInput.normalized;
+			normalizedMoveInput = _moveInput * Vector2.right;
 
-		offset = new Vector3(normalizedMoveInput.x, normalizedMoveInput.y) * 1.2f;
+		offset = new Vector3(normalizedMoveInput.x, normalizedMoveInput.y) * 0.2f;
+		normalizedMoveInput = new Vector2(normalizedMoveInput.y, -normalizedMoveInput.x);
 
 		Attack attack = Instantiate(_attack, transform.position + offset, Quaternion.LookRotation(Vector3.forward, normalizedMoveInput));
+		attack.DamageAmount = _attackDamage;
 		attack.transform.SetParent(transform);
 		attack.AddDamageMask(gameObject);
 		attack.OnAttackLanded += OnAttackLanded;
@@ -61,9 +81,8 @@ public class PlayerCombat : Damageable
 	private void OnAttackLanded(float zAxisRotation)
     {
 		#region PLAYER MOVEMENT | KNOCKBACK
-		Vector2 knockbackDirection = Quaternion.AngleAxis(zAxisRotation, Vector3.forward) * -Vector2.up;
+		Vector2 knockbackDirection = Quaternion.AngleAxis(zAxisRotation, Vector3.forward) * Vector2.right;
 		PlayerLinks.instance.PlayerMovement.Knockback(knockbackDirection);
-
         #endregion
     }
 
@@ -85,7 +104,7 @@ public class PlayerCombat : Damageable
 		_isOnCD = false;
 	}
 
-    protected override void Death()
+	protected override void Death()
     {
         base.Death();
 		PlayerLinks.instance.PlayerAnimator.SetDeathState();
@@ -94,5 +113,8 @@ public class PlayerCombat : Damageable
 		PlayerLinks.instance.PlayerMovement.enabled = false;
 		PlayerLinks.instance.PlayerInteractor.enabled = false;
 		PlayerLinks.instance.PlayerCombat.enabled = false;
+
+		//TODO: animation instead of turning off the renderer
+		GetComponent<Renderer>().enabled = false;
 	}
 }

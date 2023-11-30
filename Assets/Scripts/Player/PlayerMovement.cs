@@ -482,7 +482,7 @@ public class PlayerMovement : MonoBehaviour
 
 		while (Time.time - startTime <= Data.KnockbackAttackTime)
 		{
-			Rigidbody.velocity = dir.normalized * Data.KnockbackSpeed;
+			Rigidbody.velocity = dir * Data.KnockbackSpeed;
 			yield return null;
 		}
 
@@ -491,7 +491,7 @@ public class PlayerMovement : MonoBehaviour
 		_isDashAttacking = false;
 
 		SetGravityScale(Data.GravityScale);
-		Rigidbody.velocity = Data.KnockbackEndSpeed * dir.normalized;
+		Rigidbody.velocity = Data.KnockbackEndSpeed * dir;
 
 		while (Time.time - startTime <= Data.KnockbackEndTime)
 		{
@@ -527,7 +527,7 @@ public class PlayerMovement : MonoBehaviour
 		if (!DashUnlocked)
 			return false;
 
-		if (!IsDashing && _dashesLeft < Data.DashAmount && !_dashRefilling)
+		if (!IsDashing && _dashesLeft < Data.DashAmount && LastOnGroundTime > 0 && !_dashRefilling)
 			StartCoroutine(nameof(RefillDash), 1);
 
 		return _dashesLeft > 0;

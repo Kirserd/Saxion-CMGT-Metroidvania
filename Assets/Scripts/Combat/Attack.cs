@@ -13,8 +13,11 @@ public class Attack : MonoBehaviour
 
     [SerializeField]
     private float _damageAmount = 1f;
-    public float DamageAmount { get => _damageAmount; }
-
+    public float DamageAmount 
+    { 
+        get => _damageAmount;
+        set => _damageAmount = value;
+    }
     public void AddDamageMask(GameObject other) => _damageMask.Add(other);
     public void AddDamageMasks(GameObject[] others)
     {

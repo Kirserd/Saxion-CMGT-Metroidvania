@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class Damageable : MonoBehaviour, IDamageable
 {
+    [SerializeField]
+    [Space(5)]
+    private float _invincibilityFrames = 0.4f;
+
     [SerializeField]
     private float _maxHp;
     public float MaxHP { get; protected set; }
@@ -24,21 +29,24 @@ public class Damageable : MonoBehaviour, IDamageable
         } 
     }
 
-    private bool _isDead;
+    protected bool _isInvincible;
+    protected bool _isDead;
 
     protected virtual void Start()
     {
         MaxHP = _maxHp;
         HP = MaxHP;
         _isDead = false;
+        _isInvincible = false;
     }
 
-    public bool DealDamage(float amount)
+    public virtual bool DealDamage(float amount, Vector3 callerPosition)
     {
-        if (_isDead)
+        if (_isDead || _isInvincible)
             return false;
 
         HP -= amount;
+        StartCoroutine(nameof(InvincibilityFrames));
         return true;
     }
 
@@ -48,9 +56,16 @@ public class Damageable : MonoBehaviour, IDamageable
         if (attack is null || !attack.IsDealingDamageTo(gameObject))
             return;
 
-        DealDamage(attack.DamageAmount);
+        DealDamage(attack.DamageAmount, collision.transform.position);
         attack.AddDamageMask(collision.gameObject);
         attack.OnAttackLanded?.Invoke(attack.transform.rotation.eulerAngles.z);
+    }
+
+    private IEnumerator InvincibilityFrames()
+    {
+        _isInvincible = true;
+        yield return new WaitForSeconds(_invincibilityFrames);
+        _isInvincible = false;
     }
 
     protected virtual void Death() => _isDead = true;
