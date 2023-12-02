@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(Animator))]
-public class PowerUp : Interactable
+public class PowerUp : MonoBehaviour, Interactable
 {
     private Animator _animator;
 
@@ -28,7 +28,7 @@ public class PowerUp : Interactable
 
     private void Start() => _animator = GetComponent<Animator>();
 
-    public override void Interact(PlayerInteractor caller)
+    public void Interact(PlayerInteractor caller)
     {
         PlayerMovement playerMovement = PlayerLinks.instance.PlayerMovement;
         switch (_type)
