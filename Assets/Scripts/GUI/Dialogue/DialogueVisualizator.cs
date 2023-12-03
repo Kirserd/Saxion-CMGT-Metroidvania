@@ -23,10 +23,9 @@ public class DialogueVisualizator : MonoBehaviour
 
     public void PlayDialogue(ref Dialogue dialogue)
     {
-        if (_isBusy || GameStateMachine.Current != GameState.Overworld)
+        if (_isBusy)
             return;
 
-        GameStateMachine.SetState(GameState.Dialogue);
         StartCoroutine(nameof(DialogueCycle), dialogue);
     }
 
@@ -113,8 +112,6 @@ public class DialogueVisualizator : MonoBehaviour
 
         _animator.SetTrigger("Close");
         _isBusy = false;
-
-        GameStateMachine.SetState(GameState.Overworld);
     }
 
     private void InstantiateOptions(ref string[] options)

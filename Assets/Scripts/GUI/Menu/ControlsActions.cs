@@ -16,7 +16,6 @@ public enum InputAction
     Dash,
     Confirm,
     Return,
-    Map,
 }
 
 public static class Controls
@@ -32,7 +31,6 @@ public static class Controls
         { InputAction.Dash, new KeyCode[] { KeyCode.C, KeyCode.L } },
         { InputAction.Confirm, new KeyCode[] { KeyCode.Return, KeyCode.None } },
         { InputAction.Return, new KeyCode[] { KeyCode.Escape, KeyCode.None } },
-        { InputAction.Map, new KeyCode[] { KeyCode.Tab, KeyCode.M } },
     };
     public static void Set(InputAction action, KeyCode key) => _bindedKeys[action][0] = key;
     public static void SetAlt(InputAction action, KeyCode key) => _bindedKeys[action][1] = key;
