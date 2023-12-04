@@ -130,6 +130,9 @@ public class DialogueVisualizator : MonoBehaviour
 
             if (lineCounter + 1 >= lineMax)
             {
+                if (dialogue.important)
+                    GameProgress.ImportantDialogues++;
+
                 if (dialogue.result != DialogueResult.None)
                 {
                     if (dialogue.result == DialogueResult.Motivation)

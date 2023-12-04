@@ -11,9 +11,6 @@ public class PlayerCombat : Damageable
 	private float _attackCooldown;
 	[SerializeField]
 	private float _attackTime;
-	[Space(5)]
-	[SerializeField]
-	private bool _weaponEquipped;
 
 	private Vector2 _moveInput;
 	private bool _isOnCD;
@@ -27,7 +24,7 @@ public class PlayerCombat : Damageable
 		_moveInput.y = Input.GetKey(Controls.Get(InputAction.Up)) || Input.GetKey(Controls.GetAlt(InputAction.Up)) ? 1f :
 					   Input.GetKey(Controls.Get(InputAction.Down)) || Input.GetKey(Controls.GetAlt(InputAction.Down)) ? -1f : 0f;
 
-		if (Input.GetKeyDown(Controls.Get(InputAction.Attack)) || Input.GetKeyDown(Controls.GetAlt(InputAction.Attack)))
+		if (GameProgress.HasWeapon && Input.GetKeyDown(Controls.Get(InputAction.Attack)) || Input.GetKeyDown(Controls.GetAlt(InputAction.Attack)))
 			OnAttackInput();
 
         #endregion
@@ -52,7 +49,7 @@ public class PlayerCombat : Damageable
 
     private void OnAttackInput()
     {
-		if (!_weaponEquipped || _isOnCD || PlayerLinks.instance.PlayerMovement.IsDashing)
+		if (_isOnCD || PlayerLinks.instance.PlayerMovement.IsDashing)
 			return;
 
 		Vector2 normalizedMoveInput;
@@ -69,7 +66,7 @@ public class PlayerCombat : Damageable
 		normalizedMoveInput = new Vector2(normalizedMoveInput.y, -normalizedMoveInput.x);
 
 		Attack attack = Instantiate(_attack, transform.position + offset, Quaternion.LookRotation(Vector3.forward, normalizedMoveInput));
-		attack.DamageAmount = _attackDamage;
+		attack.DamageAmount = _attackDamage * (GameProgress.HasDamageUp? 1.6f : 1f);
 		attack.transform.SetParent(transform);
 		attack.AddDamageMask(gameObject);
 		attack.OnAttackLanded += OnAttackLanded;
@@ -103,6 +100,12 @@ public class PlayerCombat : Damageable
 		yield return new WaitForSeconds(_attackCooldown);
 		_isOnCD = false;
 	}
+
+	public void SetMaxHP(float amount) 
+    {
+		MaxHP = amount;
+		HP = amount;
+    }
 
 	protected override void Death()
     {

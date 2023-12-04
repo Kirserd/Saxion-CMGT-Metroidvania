@@ -35,6 +35,7 @@ public class Dialogue : ScriptableObject
     public bool OneTime = false;
 
     public DialogueResult result;
+    public bool important;
 
     public void OnValidate()
     {

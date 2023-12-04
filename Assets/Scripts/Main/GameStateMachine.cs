@@ -3,7 +3,8 @@
     Overworld,
     Map,
     Pause,
-    Dialogue
+    Dialogue,
+    Inventory
 }
 
 public static class GameStateMachine

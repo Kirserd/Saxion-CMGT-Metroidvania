@@ -23,7 +23,8 @@ public class PlayerLinks : MonoBehaviour
 
         GameStateMachine.OnStateChanged += GameStateValidation;
     }
-    private void GameStateValidation(GameState state) => SetPlayerInput(state == GameState.Overworld || state == GameState.Map);
+    private void GameStateValidation(GameState state) => 
+        SetPlayerInput(state == GameState.Overworld || state == GameState.Map || state == GameState.Inventory);
 
     public void SetPlayerInput(bool state) 
     {

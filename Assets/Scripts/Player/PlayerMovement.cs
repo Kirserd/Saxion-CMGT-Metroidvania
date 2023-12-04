@@ -12,13 +12,6 @@ public class PlayerMovement : MonoBehaviour
 
 	#endregion
 
-	#region LOCKS
-	public bool AirJumpUnlocked;
-	public bool DashUnlocked;
-	public bool WallJumpUnlocked;
-	public bool GlideUnlocked;
-	#endregion
-
 	#region STATE PARAMETERS
 	public bool IsAttacking { get; set; }
 	public bool IsFacingRight { get; private set; }
@@ -513,9 +506,9 @@ public class PlayerMovement : MonoBehaviour
 	}
 
     private bool CanJump() => LastOnGroundTime > 0 && _jumpsLeft == Data.JumpAmount;
-	private bool CanAirJump() => AirJumpUnlocked && _jumpsLeft > 0;
+	private bool CanAirJump() => GameProgress.HasAirJump && _jumpsLeft > 0;
 
-	private bool CanWallJump() => WallJumpUnlocked && LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
+	private bool CanWallJump() => GameProgress.HasWallJump && LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
 								(LastOnWallRightTime > 0 && _lastWallJumpDir == 1) || (LastOnWallLeftTime > 0 && _lastWallJumpDir == -1));
 
 	private bool CanJumpCut() => IsJumping && Rigidbody.velocity.y > 0;
@@ -524,7 +517,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private bool CanDash()
 	{
-		if (!DashUnlocked)
+		if (!GameProgress.HasDash)
 			return false;
 
 		if (!IsDashing && _dashesLeft < Data.DashAmount && !_dashRefilling)
@@ -533,9 +526,9 @@ public class PlayerMovement : MonoBehaviour
 		return _dashesLeft > 0;
 	}
 
-	private bool CanSlide() => WallJumpUnlocked && (LastOnWallTime > 0 && !IsJumping && !IsWallJumping && !IsDashing && LastOnGroundTime <= 0);
+	private bool CanSlide() => GameProgress.HasWallJump && (LastOnWallTime > 0 && !IsJumping && !IsWallJumping && !IsDashing && LastOnGroundTime <= 0);
 
-	private bool CanGlide() => GlideUnlocked && _isFalling;
+	private bool CanGlide() => GameProgress.HasGlide && _isFalling;
     #endregion
 
 
