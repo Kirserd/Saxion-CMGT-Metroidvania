@@ -21,4 +21,20 @@ public class PlayerLinks : MonoBehaviour
         PlayerInteractor = GetComponent<PlayerInteractor>();
         PlayerCombat = GetComponent<PlayerCombat>();
     }
+<<<<<<< Updated upstream
+=======
+
+    private void GameStateValidation(GameState state) => SetPlayerInput(state == GameState.Overworld || state == GameState.Map);
+
+    public void SetPlayerInput(bool state) 
+    {
+        PlayerMovement.Rigidbody.velocity *= Vector2.up;
+
+        PlayerMovement.enabled = state;
+        PlayerCombat.enabled = state;
+        PlayerInteractor.enabled = state;
+    }
+
+    private void OnDestroy() => GameStateMachine.OnStateChanged -= GameStateValidation;
+>>>>>>> Stashed changes
 }

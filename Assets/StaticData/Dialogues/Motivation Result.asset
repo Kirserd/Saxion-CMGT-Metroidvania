@@ -10,57 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04cffb974cf0f7247b72465e9f4374da, type: 3}
-  m_Name: TestDialogue
+  m_Name: Motivation Result
   m_EditorClassIdentifier: 
   Lines:
-  - Test is going well? Test is going well.
-  - Well? I was well, when they haven't been testing me, my every day was another
-    test. Test?
-  - Test is going well? Test is going well.
-  - Well? I was well, when they haven't been testing me, my every day was another
-    test. Test?
-  - 'Test is going well? '
-  - Uh?
+  - '*( Seems like your words helped Lily to gain clarity )'
   FirstOption:
   - 
   - 
   - 
-  - 
-  - It is going great.
   - 
   SecondOption:
   - 
   - 
   - 
   - 
-  - Erm.. actually it repeats.
-  - 
   ThirdOption:
   - 
   - 
   - 
   - 
-  - Are you asking me?
-  - 
   FirstResult:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   SecondResult:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ThirdResult:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   OneTime: 0
+  result: 0

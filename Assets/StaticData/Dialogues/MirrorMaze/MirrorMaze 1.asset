@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04cffb974cf0f7247b72465e9f4374da, type: 3}
+  m_Name: MirrorMaze 1
+  m_EditorClassIdentifier: 
+  Lines:
+  - 'These mirrors... '
+  - They're showing such distorted images of me. I'm feeling a bit lost within them
+  - It's like I'm struggling to find the real reflection of who I am.
+  FirstOption:
+  - 
+  - 
+  - Mirrors often reflect what we hope to see, not necessarily reality
+  SecondOption:
+  - 
+  - 
+  - It's like a puzzle where reality and perception blur
+  ThirdOption:
+  - 
+  - 
+  - 
+  FirstResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 44a26c2c3bcebea48ae1cc800f66cf85, type: 2}
+  SecondResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: cfead5778dcab8f4cab6d60a642dd237, type: 2}
+  ThirdResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  OneTime: 1
+  result: 0

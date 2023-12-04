@@ -527,7 +527,7 @@ public class PlayerMovement : MonoBehaviour
 		if (!DashUnlocked)
 			return false;
 
-		if (!IsDashing && _dashesLeft < Data.DashAmount && LastOnGroundTime > 0 && !_dashRefilling)
+		if (!IsDashing && _dashesLeft < Data.DashAmount && !_dashRefilling)
 			StartCoroutine(nameof(RefillDash), 1);
 
 		return _dashesLeft > 0;

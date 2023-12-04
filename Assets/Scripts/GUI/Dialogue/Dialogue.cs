@@ -1,6 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DialogueResult
+{
+    None,
+    Demotivation,
+    Motivation
+}
+
 [CreateAssetMenu(fileName = "Dialogue", menuName = "GUI/Dialogue")]
 public class Dialogue : ScriptableObject
 {
@@ -19,13 +26,15 @@ public class Dialogue : ScriptableObject
 
     [Space(10)]
 
-    public List<string> FirstResult = new();
-    public List<string> SecondResult = new();
-    public List<string> ThirdResult = new();
+    public List<Dialogue> FirstResult = new();
+    public List<Dialogue> SecondResult = new();
+    public List<Dialogue> ThirdResult = new();
 
     [Space(10)]
 
     public bool OneTime = false;
+
+    public DialogueResult result;
 
     public void OnValidate()
     {
@@ -37,10 +46,10 @@ public class Dialogue : ScriptableObject
             ThirdOption.Add("");
 
         while (FirstResult.Count < Lines.Count)
-            FirstResult.Add("");
+            FirstResult.Add(null);
         while (SecondResult.Count < Lines.Count)
-            SecondResult.Add("");
+            SecondResult.Add(null);
         while (ThirdResult.Count < Lines.Count)
-            ThirdResult.Add("");
+            ThirdResult.Add(null);
     }
 }

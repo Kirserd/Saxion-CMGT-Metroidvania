@@ -10,6 +10,7 @@ public class MenuActions : MonoBehaviour
 
     public void NewGame()
     {
+        GameProgress.Reset();
         SceneManager.LoadScene("World");
     }
 
