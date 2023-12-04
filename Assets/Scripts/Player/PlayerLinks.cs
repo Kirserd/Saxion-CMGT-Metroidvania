@@ -20,6 +20,8 @@ public class PlayerLinks : MonoBehaviour
         PlayerMovement = GetComponent<PlayerMovement>();
         PlayerInteractor = GetComponent<PlayerInteractor>();
         PlayerCombat = GetComponent<PlayerCombat>();
+
+        GameStateMachine.OnStateChanged += GameStateValidation;
     }
 <<<<<<< Updated upstream
 =======
