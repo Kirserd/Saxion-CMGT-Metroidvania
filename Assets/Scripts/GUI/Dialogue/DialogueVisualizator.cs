@@ -148,11 +148,6 @@ public class DialogueVisualizator : MonoBehaviour
         }
 
         _animator.SetTrigger("Close");
-<<<<<<< Updated upstream
-=======
-        GameStateMachine.SetState(GameState.Overworld);
-        
->>>>>>> Stashed changes
         _isBusy = false;
 
         GameStateMachine.SetState(GameState.Overworld);

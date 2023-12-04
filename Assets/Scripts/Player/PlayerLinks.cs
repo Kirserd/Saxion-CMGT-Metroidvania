@@ -23,9 +23,6 @@ public class PlayerLinks : MonoBehaviour
 
         GameStateMachine.OnStateChanged += GameStateValidation;
     }
-<<<<<<< Updated upstream
-=======
-
     private void GameStateValidation(GameState state) => SetPlayerInput(state == GameState.Overworld || state == GameState.Map);
 
     public void SetPlayerInput(bool state) 
@@ -38,5 +35,4 @@ public class PlayerLinks : MonoBehaviour
     }
 
     private void OnDestroy() => GameStateMachine.OnStateChanged -= GameStateValidation;
->>>>>>> Stashed changes
 }
