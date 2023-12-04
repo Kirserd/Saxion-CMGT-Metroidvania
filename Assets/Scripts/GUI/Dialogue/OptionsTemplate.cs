@@ -60,13 +60,20 @@ public class OptionsTemplate : MonoBehaviour
         }
     }
 
-    public void SubscribeButtons(UnityAction<int> action)
+    public void SubscribeButtons(DialogueVisualizator caller)
     {
-        for (int i = 0; i < _options.Length; i++)
-        {
-            _options[i].onClick.AddListener(() => action(i));
-            _options[i].onClick.AddListener(() => Destroy(gameObject));
-        }
+        _options[0].onClick.AddListener(() => caller.OnOptionClick(0));
+        _options[0].onClick.AddListener(() => Destroy(gameObject));
+        if (_options.Length == 1)
+            return;
+
+        _options[1].onClick.AddListener(() => caller.OnOptionClick(1));
+        _options[1].onClick.AddListener(() => Destroy(gameObject));
+        if (_options.Length == 2)
+            return;
+
+        _options[2].onClick.AddListener(() => caller.OnOptionClick(2));
+        _options[2].onClick.AddListener(() => Destroy(gameObject));
     }
 
     private void UpdateSelection()

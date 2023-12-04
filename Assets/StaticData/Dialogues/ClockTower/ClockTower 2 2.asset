@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04cffb974cf0f7247b72465e9f4374da, type: 3}
+  m_Name: ClockTower 2 2
+  m_EditorClassIdentifier: 
+  Lines:
+  - Absolutely. It feels as though life's essence is ensnared within time's ceaseless
+    flow.
+  - The blossoming and fading of these flowers in sync with the clock's ticking is
+    a testament to our ephemeral existence.
+  - Perhaps, but grappling with the fleeting nature of life feels like trying to
+    capture something elusive. What if life's true essence dissipates amidst its
+    transient nature?
+  FirstOption:
+  - 
+  - Perhaps finding meaning within time's bounds reveals life's true worth?
+  - 
+  SecondOption:
+  - 
+  - 
+  - 
+  ThirdOption:
+  - 
+  - 
+  - 
+  FirstResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SecondResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ThirdResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  OneTime: 1
+  result: 1

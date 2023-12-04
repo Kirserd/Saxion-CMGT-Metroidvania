@@ -5,6 +5,9 @@ using TMPro;
 public class DialogueVisualizator : MonoBehaviour
 {
     [SerializeField]
+    private Dialogue _motivation, _demotivation;
+
+    [SerializeField]
     private OptionsTemplate _optionsPrefab;
 
     [SerializeField]
@@ -35,6 +38,9 @@ public class DialogueVisualizator : MonoBehaviour
         _isBusy = true;
         _animator.SetTrigger("Open");
 
+        if (dialogue.OneTime)
+            Dialogues.FinishedOneTimeDialogue(dialogue);
+
         float charDelay = 0.1f / Dialogues.DialogueSpeed;
 
         int charMax;
@@ -48,7 +54,7 @@ public class DialogueVisualizator : MonoBehaviour
         bool lineWithOptions;
 
         string[] currentOptions;
-        string[] currentResults;
+        Dialogue[] currentResults;
 
         while (lineCounter < lineMax)
         {
@@ -71,12 +77,24 @@ public class DialogueVisualizator : MonoBehaviour
 
             if (lineWithOptions)
             {
-                currentOptions = new string[3]
-                {
-                    dialogue.FirstOption[lineCounter],
-                    dialogue.SecondOption[lineCounter],
-                    dialogue.ThirdOption[lineCounter]
-                };
+                if(dialogue.ThirdOption[lineCounter] != "")
+                    currentOptions = new string[3]
+                   {
+                        dialogue.FirstOption[lineCounter],
+                        dialogue.SecondOption[lineCounter],
+                        dialogue.ThirdOption[lineCounter]
+                   };
+                else if(dialogue.SecondOption[lineCounter] != "")
+                    currentOptions = new string[2]
+                    {
+                        dialogue.FirstOption[lineCounter],
+                        dialogue.SecondOption[lineCounter]
+                    };
+                else 
+                    currentOptions = new string[1]
+                    {
+                        dialogue.FirstOption[lineCounter]
+                    };
 
                 InstantiateOptions(ref currentOptions);
             }
@@ -94,22 +112,40 @@ public class DialogueVisualizator : MonoBehaviour
 
             if (lineWithOptions) 
             {
-                currentResults = new string[3]
+                currentResults = new Dialogue[3]
                 {
                     dialogue.FirstResult[lineCounter],
                     dialogue.SecondResult[lineCounter],
                     dialogue.ThirdResult[lineCounter]
                 };
 
-                Dialogues.ApplyResult(currentResults[_chosenOption]);
-                _chosenOption = -1;
+                if (currentResults[_chosenOption] is not null)
+                {
+                    dialogue = currentResults[_chosenOption];
+                    lineMax = dialogue.Lines.Count;
+                    lineCounter = -1;
+                    _chosenOption = -1;
+                }
+            }
+
+            if (lineCounter + 1 >= lineMax)
+            {
+                if (dialogue.result != DialogueResult.None)
+                {
+                    if (dialogue.result == DialogueResult.Motivation)
+                    {
+                        dialogue = _motivation;
+                        GameProgress.Motivations++;
+                    }
+                    else dialogue = _demotivation;
+
+                    lineMax = dialogue.Lines.Count;
+                    lineCounter = -1;
+                }
             }
 
             lineCounter++;
         }
-
-        if (dialogue.OneTime)
-            Dialogues.FinishedOneTimeDialogue(dialogue);
 
         _animator.SetTrigger("Close");
         _isBusy = false;
@@ -123,13 +159,13 @@ public class DialogueVisualizator : MonoBehaviour
 
         OptionsTemplate optionsTemplate = Instantiate(_optionsPrefab, transform);
         optionsTemplate.SetupOptions(ref options);
-        optionsTemplate.SubscribeButtons((int index) => OnOptionClick(index));
+        optionsTemplate.SubscribeButtons(this);
         optionsTemplate.transform.SetParent(transform.parent);
     }
 
     public void OnOptionClick(int index)
     {
-        _chosenOption = index - 1;
+        _chosenOption = index;
         _wantToProceed = true;
 
         _animator.SetTrigger("MoveRight");

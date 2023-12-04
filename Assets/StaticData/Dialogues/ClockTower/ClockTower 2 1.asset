@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04cffb974cf0f7247b72465e9f4374da, type: 3}
+  m_Name: ClockTower 2 1
+  m_EditorClassIdentifier: 
+  Lines:
+  - Yes, I suppose. It's akin to witnessing time's control over life's cycle. The
+    bloom and decay of these flowers seem choreographed to the symphony of those
+    colossal clocks.
+  - It's haunting, feeling like our very existence is sculpted by time's relentless
+    march.
+  - That's intriguing. Time's flow sometimes feels like an indomitable force, leaving
+    us grappling with an urgency to seize fleeting instants.
+  - It's overwhelming, as if we're racing against an unyielding force.
+  FirstOption:
+  - 
+  - Then perhaps our attention should linger in the moments amidst time's passage
+  - 
+  - 
+  SecondOption:
+  - 
+  - 
+  - 
+  - 
+  ThirdOption:
+  - 
+  - 
+  - 
+  - 
+  FirstResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SecondResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ThirdResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  OneTime: 1
+  result: 2

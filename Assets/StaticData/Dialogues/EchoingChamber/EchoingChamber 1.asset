@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04cffb974cf0f7247b72465e9f4374da, type: 3}
+  m_Name: EchoingChamber 1
+  m_EditorClassIdentifier: 
+  Lines:
+  - This chamber... Every one of my words echoes endlessly, almost like my thoughts
+    bouncing off the walls.
+  - It's mesmerizing, again! And again in a haunting sort of way.
+  FirstOption:
+  - 
+  - Do you believe in the impact of what we say?
+  SecondOption:
+  - 
+  - There is nothing haunting, words hold immense power
+  ThirdOption:
+  - 
+  - 
+  FirstResult:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 962934803cf1159409405a2daa285e96, type: 2}
+  SecondResult:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 9e813c1b4a7bd2d409483310f085c963, type: 2}
+  ThirdResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  OneTime: 1
+  result: 0

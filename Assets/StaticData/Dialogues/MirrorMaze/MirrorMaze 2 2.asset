@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04cffb974cf0f7247b72465e9f4374da, type: 3}
+  m_Name: MirrorMaze 2 2
+  m_EditorClassIdentifier: 
+  Lines:
+  - Yeah, reality often feels like a puzzle with missing pieces.
+  - I'm constantly trying to put them together, hoping to see the whole picture,
+    but the more I try, the more confusing it gets.
+  - Maybe... but it's a bit scary, you know? Letting go of the need for certainty
+    feels like losing control, and I've been holding onto that hope for so long.
+    What if I've been chasing something that I shouldn't?
+  FirstOption:
+  - 
+  - Maybe uncertainty is part of discovering truth.
+  - 
+  - 
+  SecondOption:
+  - 
+  - 
+  - 
+  - 
+  ThirdOption:
+  - 
+  - 
+  - 
+  - 
+  FirstResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SecondResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ThirdResult:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  OneTime: 1
+  result: 1

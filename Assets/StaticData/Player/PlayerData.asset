@@ -43,14 +43,14 @@ MonoBehaviour:
   SlideAccel: 8
   CoyoteTime: 0.12
   JumpInputBufferTime: 0.1
-  DashAmount: 2
+  DashAmount: 1
   DashSpeed: 100
   DashSleepTime: 0
   DashAttackTime: 0.08
   DashEndTime: 0.08
   DashEndSpeed: {x: 15, y: 15}
   DashEndRunLerp: 0.6
-  DashRefillTime: 0.3
+  DashRefillTime: 0.4
   DashInputBufferTime: 0.1
   KnockbackSpeed: 15
   KnockbackAttackTime: 0.04

@@ -15,6 +15,9 @@ public static class GameStateMachine
 
     public static void SetState(GameState next) 
     {
+        if (Current == next)
+            return;
+
         Previous = Current;
         Current = next;
 

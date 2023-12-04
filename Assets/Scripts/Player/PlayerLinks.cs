@@ -28,7 +28,7 @@ public class PlayerLinks : MonoBehaviour
 
     public void SetPlayerInput(bool state) 
     {
-        PlayerMovement.Rigidbody.velocity = Vector2.zero;
+        PlayerMovement.Rigidbody.velocity *= Vector2.up;
 
         PlayerMovement.enabled = state;
         PlayerCombat.enabled = state;
