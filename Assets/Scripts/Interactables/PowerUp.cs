@@ -76,6 +76,9 @@ public class PowerUp : MonoBehaviour, Interactable
     private IEnumerator AnimateDestroy()
     {
         _animator.SetTrigger(_trigger);
+        if (_length == -1)
+            yield break;
+
         yield return new WaitForSeconds(_length);
         Destroy(gameObject);
     }
