@@ -303,36 +303,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 30000
---- !u!114 &-7666832877794162565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/BossTheme
-  m_EditorClassIdentifier: 
-  Path: event:/BossTheme
-  Guid:
-    Data1: -381973283
-    Data2: 1122644862
-    Data3: 215991948
-    Data4: -325087481
-  Banks:
-  - {fileID: 5710018198093327726}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -2149824770826290071}
-  - {fileID: 2261639037884039428}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 186352
+  Length: 219308
 --- !u!114 &-7618486585584836754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,6 +403,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-7283342383146743505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Level 3 The Floating Observatory/ObservatoryTheme
+  m_EditorClassIdentifier: 
+  Path: event:/Level 3 The Floating Observatory/ObservatoryTheme
+  Guid:
+    Data1: -1016614884
+    Data2: 1316470797
+    Data3: -1703651703
+    Data4: 1436209712
+  Banks:
+  - {fileID: 5728711516844878926}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 59076
 --- !u!114 &-7240723042440219235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +528,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1102496
   Exists: 1
+--- !u!114 &-6586718056721734472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Level 0/SunflowerTheme
+  m_EditorClassIdentifier: 
+  Path: event:/Level 0/SunflowerTheme
+  Guid:
+    Data1: -1100359921
+    Data2: 1329134207
+    Data3: -698300516
+    Data4: 1002909331
+  Banks:
+  - {fileID: 5728711516844878926}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 85153
 --- !u!114 &-6472224321067396696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,6 +583,35 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6337840254779398684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossTheme/Selector
+  m_EditorClassIdentifier: 
+  Name: Selector
+  StudioPath: 
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 1914155928
+    data2: 3142376648
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - V1
+  - V2
+  - V3
+  - V4
+  - V5
+  Exists: 1
 --- !u!114 &-6333984830355907734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,33 +666,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
---- !u!114 &-5928693204361704100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MirrorMazeTheme
-  m_EditorClassIdentifier: 
-  Path: event:/MirrorMazeTheme
-  Guid:
-    Data1: -334117746
-    Data2: 1081771127
-    Data3: -750470527
-    Data4: 517822906
-  Banks:
-  - {fileID: 5728711516844878926}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 25600
 --- !u!114 &-5879645451483463252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,6 +732,33 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 494
+  Exists: 1
+--- !u!114 &-5329861444497411420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossTheme/StateOfPlay
+  m_EditorClassIdentifier: 
+  Name: StateOfPlay
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1383835808
+    data2: 2126724339
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Intro
+  - Middle
+  - End
   Exists: 1
 --- !u!114 &-5169017615224593111
 MonoBehaviour:
@@ -907,33 +961,6 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-2149824770826290071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/BossTheme/StateOfPlay
-  m_EditorClassIdentifier: 
-  Name: StateOfPlay
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 1383835808
-    data2: 2126724339
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - Intro
-  - Middle
-  - End
-  Exists: 1
 --- !u!114 &-1891065421324193530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1056,8 +1083,8 @@ MonoBehaviour:
     Data3: 1296851647
     Data4: -1880809639
   Banks:
-  - {fileID: 8933240237806484107}
   - {fileID: -6654968750919398296}
+  - {fileID: 8933240237806484107}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -1122,6 +1149,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5500
+--- !u!114 &-1268812650068346599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Level 1 Mirror Maze/MirrorMazeTheme
+  m_EditorClassIdentifier: 
+  Path: event:/Level 1 Mirror Maze/MirrorMazeTheme
+  Guid:
+    Data1: -334117746
+    Data2: 1081771127
+    Data3: -750470527
+    Data4: 517822906
+  Banks:
+  - {fileID: 5728711516844878926}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 25600
 --- !u!114 &-1258908669851528381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1200,33 +1254,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2250
---- !u!114 &-625340562929475188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ObservatoryTheme
-  m_EditorClassIdentifier: 
-  Path: event:/ObservatoryTheme
-  Guid:
-    Data1: -1016614884
-    Data2: 1316470797
-    Data3: -1703651703
-    Data4: 1436209712
-  Banks:
-  - {fileID: 5728711516844878926}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 59076
 --- !u!114 &-322724229005272066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,33 +1281,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1000
---- !u!114 &-287859302099598500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SunflowerTheme
-  m_EditorClassIdentifier: 
-  Path: event:/SunflowerTheme
-  Guid:
-    Data1: -1100359921
-    Data2: 1329134207
-    Data3: -698300516
-    Data4: 1002909331
-  Banks:
-  - {fileID: 5728711516844878926}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 85153
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1356,20 +1356,20 @@ MonoBehaviour:
   - {fileID: 579424680844833537}
   - {fileID: 8637555062072451518}
   - {fileID: -7240723042440219235}
-  - {fileID: -287859302099598500}
   - {fileID: -6941351950171236381}
-  - {fileID: -5928693204361704100}
-  - {fileID: 4606030382899180329}
-  - {fileID: 149905715019521500}
-  - {fileID: 2171531345512168730}
-  - {fileID: -7666832877794162565}
-  - {fileID: -625340562929475188}
+  - {fileID: -6586718056721734472}
+  - {fileID: -7283342383146743505}
+  - {fileID: -1268812650068346599}
+  - {fileID: 5318551718215220276}
+  - {fileID: 386104837166321526}
+  - {fileID: 1066801607798435846}
+  - {fileID: 4096882200486005178}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2964843972799280930}
   StringsBanks:
   - {fileID: 2705313159298491877}
-  cacheTime: 638375510363885136
+  cacheTime: 638375527408103334
   cacheVersion: 131607
 --- !u!114 &99172260507120413
 MonoBehaviour:
@@ -1422,7 +1422,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 520
---- !u!114 &149905715019521500
+--- !u!114 &386104837166321526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1432,9 +1432,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/WaterTowerTheme
+  m_Name: event:/WaterTower/WaterTowerTheme
   m_EditorClassIdentifier: 
-  Path: event:/WaterTowerTheme
+  Path: event:/WaterTower/WaterTowerTheme
   Guid:
     Data1: -771704389
     Data2: 1311805430
@@ -1518,10 +1518,10 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638375429788633635
+  lastModified: 638375527408103334
   FileSizes:
   - Name: Desktop
-    Value: 227328
+    Value: 227776
   Exists: 1
 --- !u!114 &919695660875555335
 MonoBehaviour:
@@ -1553,6 +1553,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1066801607798435846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Level 2 ClockWork Garden/ClockworkGarden Theme
+  m_EditorClassIdentifier: 
+  Path: event:/Level 2 ClockWork Garden/ClockworkGarden Theme
+  Guid:
+    Data1: -1623372043
+    Data2: 1316598092
+    Data3: -2005736777
+    Data4: -1066870035
+  Banks:
+  - {fileID: 5728711516844878926}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14769
 --- !u!114 &1304047495418606547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1627,62 +1654,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 626
---- !u!114 &2171531345512168730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ClockworkGarden Theme
-  m_EditorClassIdentifier: 
-  Path: event:/ClockworkGarden Theme
-  Guid:
-    Data1: -1623372043
-    Data2: 1316598092
-    Data3: -2005736777
-    Data4: -1066870035
-  Banks:
-  - {fileID: 5728711516844878926}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 14769
---- !u!114 &2261639037884039428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/BossTheme/Selector
-  m_EditorClassIdentifier: 
-  Name: Selector
-  StudioPath: 
-  Min: 0
-  Max: 4
-  Default: 0
-  ID:
-    data1: 1914155928
-    data2: 3142376648
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - V1
-  - V2
-  - V3
-  - V4
-  - V5
-  Exists: 1
 --- !u!114 &2636272682960586555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1718,10 +1689,10 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638375497198668778
+  lastModified: 638375516538052955
   FileSizes:
   - Name: Desktop
-    Value: 5220
+    Value: 5252
   Exists: 1
 --- !u!114 &2964843972799280930
 MonoBehaviour:
@@ -1738,7 +1709,7 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638375497198648760
+  lastModified: 638375516538042949
   FileSizes:
   - Name: Desktop
     Value: 6966
@@ -1841,6 +1812,35 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 390
+--- !u!114 &4096882200486005178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy_Group/Boss/BossTheme
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy_Group/Boss/BossTheme
+  Guid:
+    Data1: -381973283
+    Data2: 1122644862
+    Data3: 215991948
+    Data4: -325087481
+  Banks:
+  - {fileID: 5710018198093327726}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -5329861444497411420}
+  - {fileID: -6337840254779398684}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 186352
 --- !u!114 &4283440961487056884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1873,33 +1873,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
---- !u!114 &4606030382899180329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/EchoTheme
-  m_EditorClassIdentifier: 
-  Path: event:/EchoTheme
-  Guid:
-    Data1: 1658825380
-    Data2: 1236727026
-    Data3: 1061036703
-    Data4: -1903034968
-  Banks:
-  - {fileID: 5728711516844878926}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 14769
 --- !u!114 &4699270662273234899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,6 +1974,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 297
+--- !u!114 &5318551718215220276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Level 4 (Echo Chamber)/EchoTheme
+  m_EditorClassIdentifier: 
+  Path: event:/Level 4 (Echo Chamber)/EchoTheme
+  Guid:
+    Data1: 1658825380
+    Data2: 1236727026
+    Data3: 1061036703
+    Data4: -1903034968
+  Banks:
+  - {fileID: 5728711516844878926}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14769
 --- !u!114 &5710018198093327726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2016,7 +2016,7 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Enemies.bank
   Name: Enemies
   StudioPath: bank:/Enemies
-  lastModified: 638375492691166012
+  lastModified: 638375526390113032
   FileSizes:
   - Name: Desktop
     Value: 2200416
@@ -2036,10 +2036,10 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Background_Music.bank
   Name: Background_Music
   StudioPath: bank:/Background_Music
-  lastModified: 638375510363885136
+  lastModified: 638375526389582545
   FileSizes:
   - Name: Desktop
-    Value: 2710304
+    Value: 2708000
   Exists: 1
 --- !u!114 &5791882045708117316
 MonoBehaviour:
@@ -2400,10 +2400,10 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/City.bank
   Name: City
   StudioPath: bank:/City
-  lastModified: 638375429777379302
+  lastModified: 638375516537402365
   FileSizes:
   - Name: Desktop
-    Value: 1579328
+    Value: 4059840
   Exists: 1
 --- !u!114 &8979862471468955289
 MonoBehaviour:

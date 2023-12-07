@@ -556,26 +556,41 @@
 		</property>
 	</object>
 	<object class="SingleSound" id="{5d973d27-0e84-4fc9-8d0b-95bf8d36edf0}">
+		<property name="volume">
+			<value>-7.5</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{fe9f3055-26b1-45a7-9000-59e972473176}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{fe7e9b4a-a35c-4f9f-ae04-3bea3a6c31f4}">
+		<property name="volume">
+			<value>-9</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{8fcbe483-cb17-44f0-bfb7-a6af9e39413f}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{26e99e68-c0e0-4150-8a70-900c3c4ad637}">
+		<property name="volume">
+			<value>-8.5</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{b59cd058-34f6-4652-b084-25bcea26e9f8}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{8511c358-db03-42b4-8c8f-b21328a407e7}">
+		<property name="volume">
+			<value>-8</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{216fbf8c-5fd7-4f09-b9f2-6f3edfc851a2}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{72ef6158-8efc-4a26-bc47-6b22ef409c46}">
+		<property name="volume">
+			<value>-7.5</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{5e14726e-b597-4fff-a9ca-37c7529285f0}</destination>
 		</relationship>
@@ -818,7 +833,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>-20.7142868</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{b30c5082-e340-4fcc-8e41-c93014414fe3}">
