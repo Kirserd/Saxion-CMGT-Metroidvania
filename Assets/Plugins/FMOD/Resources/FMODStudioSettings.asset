@@ -443,18 +443,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Background_Music
-  - City
-  - Dialogue
-  - Enemies
   - Environmental
-  - Level 0
-  - Level 1
-  - Level 2
-  - Level 3
-  - Level 4
-  - Main Menu
-  - PickUps
-  - Player
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

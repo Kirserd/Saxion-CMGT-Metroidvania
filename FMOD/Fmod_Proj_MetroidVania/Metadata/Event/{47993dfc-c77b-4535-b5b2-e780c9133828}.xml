@@ -100,6 +100,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{6664be71-b5e1-4ef5-a9dc-89a50ebead59}">
+		<property name="volume">
+			<value>-9</value>
+		</property>
 		<property name="name">
 			<value>Observing_Star</value>
 		</property>
