@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8a8cfc25-f898-4c8d-8a58-62c8ea2c2038}">
+		<property name="assetPath">
+			<value>Player_Damage (3).ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.35723356009070295</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{316cec3d-682b-432c-b6f2-262f7a4f8a94}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{a571b11f-c05d-458b-9eaf-149f6a7375c9}">
+		<property name="name">
+			<value>Level 4 (Echo Chamber)</value>
+		</property>
+		<relationship name="folder">
+			<destination>{705b7346-243b-438a-9135-432d6510956b}</destination>
+		</relationship>
+	</object>
+</objects>

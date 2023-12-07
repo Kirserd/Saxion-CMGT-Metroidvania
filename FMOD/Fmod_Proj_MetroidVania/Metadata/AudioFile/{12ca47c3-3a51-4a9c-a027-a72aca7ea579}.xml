@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{12ca47c3-3a51-4a9c-a027-a72aca7ea579}">
+		<property name="assetPath">
+			<value>Metal_Footstep_4.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.37353741496598641</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{316cec3d-682b-432c-b6f2-262f7a4f8a94}</destination>
+		</relationship>
+	</object>
+</objects>

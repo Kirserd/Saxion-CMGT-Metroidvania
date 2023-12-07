@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{24f8251e-cde2-410e-815d-9f6d3f82d596}">
+		<property name="assetPath">
+			<value>finch.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.6774376417233561</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{316cec3d-682b-432c-b6f2-262f7a4f8a94}</destination>
+		</relationship>
+	</object>
+</objects>

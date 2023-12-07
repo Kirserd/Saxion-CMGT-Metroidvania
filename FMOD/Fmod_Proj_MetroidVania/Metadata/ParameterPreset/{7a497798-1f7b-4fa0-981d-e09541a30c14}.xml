@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{7a497798-1f7b-4fa0-981d-e09541a30c14}">
+		<property name="name">
+			<value>Echo_Ambi_Intensity</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e0cfa988-4fee-4692-b228-434140c3c60b}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{0cccd7bd-aa82-4559-9ad7-62476795e18a}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{0cccd7bd-aa82-4559-9ad7-62476795e18a}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.10999999940395355</value>
+		</property>
+	</object>
+</objects>

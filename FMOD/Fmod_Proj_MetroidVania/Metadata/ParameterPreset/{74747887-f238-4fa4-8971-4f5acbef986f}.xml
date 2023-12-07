@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{74747887-f238-4fa4-8971-4f5acbef986f}">
+		<property name="name">
+			<value>Water_Drops</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e0cfa988-4fee-4692-b228-434140c3c60b}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{911e5c65-e038-4365-8a9a-c297f9671a48}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{911e5c65-e038-4365-8a9a-c297f9671a48}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.10999999940395355</value>
+		</property>
+	</object>
+</objects>

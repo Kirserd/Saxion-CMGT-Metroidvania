@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fadca3b9-c516-456c-9f88-d7cecf78c8ca}">
+		<property name="assetPath">
+			<value>Clock_Strange.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{316cec3d-682b-432c-b6f2-262f7a4f8a94}</destination>
+		</relationship>
+	</object>
+</objects>

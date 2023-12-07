@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{02a2193d-a242-42f8-a418-de79a356db4b}">
+		<property name="name">
+			<value>Electricity_Internsity</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e0cfa988-4fee-4692-b228-434140c3c60b}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{f91b758c-a7be-48f4-8cf1-17d1d396aa51}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{f91b758c-a7be-48f4-8cf1-17d1d396aa51}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.15999999642372131</value>
+		</property>
+	</object>
+</objects>

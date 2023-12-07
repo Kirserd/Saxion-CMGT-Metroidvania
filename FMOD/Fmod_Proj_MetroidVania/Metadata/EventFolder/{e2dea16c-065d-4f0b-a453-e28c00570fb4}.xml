@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{e2dea16c-065d-4f0b-a453-e28c00570fb4}">
+		<property name="name">
+			<value>Level 1 Mirror Maze</value>
+		</property>
+		<relationship name="folder">
+			<destination>{705b7346-243b-438a-9135-432d6510956b}</destination>
+		</relationship>
+	</object>
+</objects>

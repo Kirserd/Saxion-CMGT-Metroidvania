@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{244899c3-f36a-41b2-a01c-c506b5055382}">
+		<property name="name">
+			<value>Level 2 ClockWork Garden</value>
+		</property>
+		<relationship name="folder">
+			<destination>{705b7346-243b-438a-9135-432d6510956b}</destination>
+		</relationship>
+	</object>
+</objects>

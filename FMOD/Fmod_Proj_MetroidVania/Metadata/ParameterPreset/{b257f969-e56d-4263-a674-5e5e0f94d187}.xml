@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{b257f969-e56d-4263-a674-5e5e0f94d187}">
+		<property name="name">
+			<value>MachineWorks_Intensity</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e0cfa988-4fee-4692-b228-434140c3c60b}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{077df8b4-10f0-477c-b644-80f802eb02d0}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{077df8b4-10f0-477c-b644-80f802eb02d0}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.099999994039535522</value>
+		</property>
+	</object>
+</objects>
