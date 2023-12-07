@@ -1200,6 +1200,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2250
+--- !u!114 &-625340562929475188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ObservatoryTheme
+  m_EditorClassIdentifier: 
+  Path: event:/ObservatoryTheme
+  Guid:
+    Data1: -1016614884
+    Data2: 1316470797
+    Data3: -1703651703
+    Data4: 1436209712
+  Banks:
+  - {fileID: 5728711516844878926}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 59076
 --- !u!114 &-322724229005272066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,12 +1363,13 @@ MonoBehaviour:
   - {fileID: 149905715019521500}
   - {fileID: 2171531345512168730}
   - {fileID: -7666832877794162565}
+  - {fileID: -625340562929475188}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2964843972799280930}
   StringsBanks:
   - {fileID: 2705313159298491877}
-  cacheTime: 638375492691166012
+  cacheTime: 638375497198668778
   cacheVersion: 131607
 --- !u!114 &99172260507120413
 MonoBehaviour:
@@ -1690,10 +1718,10 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638375486922968208
+  lastModified: 638375497198668778
   FileSizes:
   - Name: Desktop
-    Value: 5174
+    Value: 5220
   Exists: 1
 --- !u!114 &2964843972799280930
 MonoBehaviour:
@@ -1710,7 +1738,7 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638375486922948188
+  lastModified: 638375497198648760
   FileSizes:
   - Name: Desktop
     Value: 6966
@@ -2008,10 +2036,10 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Background_Music.bank
   Name: Background_Music
   StudioPath: bank:/Background_Music
-  lastModified: 638375474596440344
+  lastModified: 638375497198488616
   FileSizes:
   - Name: Desktop
-    Value: 2061184
+    Value: 2707520
   Exists: 1
 --- !u!114 &5791882045708117316
 MonoBehaviour:
