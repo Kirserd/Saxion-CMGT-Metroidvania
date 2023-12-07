@@ -2,7 +2,7 @@
 
 public class BossDoor : MonoBehaviour
 {
-    private static int _predicate = 4;
+    private static int _predicate = 5;
     private Animator _animator;
 
     private void Awake() => _animator = GetComponent<Animator>();
