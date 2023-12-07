@@ -46,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
 
 	public float LastPressedJumpTime { get; private set; }
 	public float LastPressedDashTime { get; private set; }
+
+	public Vector3 LastSafeSpot { get; private set; }
+
 	#endregion
 
 	#region CHECK PARAMETERS
@@ -126,6 +129,9 @@ public class PlayerMovement : MonoBehaviour
 
 				_jumpsLeft = Data.JumpAmount;
 				LastOnGroundTime = Data.CoyoteTime;
+
+				if(Rigidbody.velocity.y == 0)
+					LastSafeSpot = transform.position;
             }		
 
 			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)

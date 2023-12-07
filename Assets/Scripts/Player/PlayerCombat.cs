@@ -33,10 +33,20 @@ public class PlayerCombat : Damageable
 	private void OnCollisionStay2D(Collision2D collision)
 	{
 		if (collision.gameObject.CompareTag("Enemy"))
-			DealDamage(4, collision.transform.position);
+			DealDamage(1, collision.transform.position);
 	}
 
-	public override bool DealDamage(float amount, Vector3 callerPosition)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+		if (collision.CompareTag("DamagingTiles"))
+		{
+			DealDamage(1, collision.transform.position);
+			transform.position = PlayerLinks.instance.PlayerMovement.LastSafeSpot;
+			StartCoroutine(nameof(ControlsCooldown));
+		}
+	}
+
+    public override bool DealDamage(float amount, Vector3 callerPosition)
     {
         bool dealtDamage = base.DealDamage(amount, callerPosition);
 		if (dealtDamage)
@@ -100,6 +110,16 @@ public class PlayerCombat : Damageable
 		yield return new WaitForSeconds(_attackCooldown);
 		_isOnCD = false;
 	}
+
+	private IEnumerator ControlsCooldown()
+	{
+		PlayerLinks.instance.PlayerMovement.Rigidbody.Sleep();
+		PlayerLinks.instance.PlayerMovement.enabled = false;
+		yield return new WaitForSeconds(0.2f);
+		PlayerLinks.instance.PlayerMovement.enabled = true;
+		PlayerLinks.instance.PlayerMovement.Rigidbody.WakeUp();
+	}
+
 
 	public void SetMaxHP(float amount) 
     {
