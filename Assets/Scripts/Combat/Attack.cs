@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    public GameObject Owner {get; private set;}
+
     private HashSet<GameObject> _damageMask = new();
     public delegate void OnAttackLandedHandler(float zAxisRotation);
     public OnAttackLandedHandler OnAttackLanded;
@@ -18,6 +20,7 @@ public class Attack : MonoBehaviour
         get => _damageAmount;
         set => _damageAmount = value;
     }
+    public void SetOwner(GameObject owner) => Owner = owner;
     public void AddDamageMask(GameObject other) => _damageMask.Add(other);
     public void AddDamageMasks(GameObject[] others)
     {

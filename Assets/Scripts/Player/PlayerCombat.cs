@@ -1,8 +1,20 @@
 ﻿using System.Collections;
 using UnityEngine;
+using FMODUnity;
 
 public class PlayerCombat : Damageable
 {
+	#region SOUNDS
+	[Header("Sounds")]
+	public EventReference MissRef, AttackRef, DamageRef, DeathRef, HealedRef;
+	private FMOD.Studio.EventInstance _missIns, _attackIns, _damageIns, _deathIns, _healedIns;
+	[Space(5)]
+	private float _stepCounter;
+	[SerializeField]
+	private float _stepPredicate;
+	[Space(20)]
+	#endregion
+
 	[SerializeField]
 	private Attack _attack;
 	[SerializeField]
@@ -15,7 +27,18 @@ public class PlayerCombat : Damageable
 	private Vector2 _moveInput;
 	private bool _isOnCD;
 
-    private void Update()
+	private void Awake()
+	{
+		#region INIT SOUNDS
+		_missIns = FMODUnity.RuntimeManager.CreateInstance(MissRef);
+		_attackIns = FMODUnity.RuntimeManager.CreateInstance(AttackRef);
+		_damageIns = FMODUnity.RuntimeManager.CreateInstance(DamageRef);
+		_deathIns = FMODUnity.RuntimeManager.CreateInstance(DeathRef);
+		_healedIns = FMODUnity.RuntimeManager.CreateInstance(HealedRef);
+		#endregion
+	}
+
+	private void Update()
 	{
 		#region INPUT HANDLER
 
@@ -41,8 +64,7 @@ public class PlayerCombat : Damageable
 		if (collision.CompareTag("DamagingTiles"))
 		{
 			DealDamage(1, collision.transform.position);
-			transform.position = PlayerLinks.instance.PlayerMovement.LastSafeSpot;
-			StartCoroutine(nameof(ControlsCooldown));
+			StartCoroutine(nameof(ReturnToTheSafeSpot));
 		}
 	}
 
@@ -51,6 +73,7 @@ public class PlayerCombat : Damageable
         bool dealtDamage = base.DealDamage(amount, callerPosition);
 		if (dealtDamage)
 		{
+			_damageIns.start();
 			Vector2 knockbackDirection = (transform.position - callerPosition).normalized;
 			PlayerLinks.instance.PlayerMovement.Knockback(knockbackDirection * new Vector2(3, 0.5f));
 		}
@@ -79,7 +102,10 @@ public class PlayerCombat : Damageable
 		attack.DamageAmount = _attackDamage * (GameProgress.HasDamageUp? 1.6f : 1f);
 		attack.transform.SetParent(transform);
 		attack.AddDamageMask(gameObject);
+		attack.SetOwner(gameObject);
 		attack.OnAttackLanded += OnAttackLanded;
+
+		StartMissIns();
 
 		StartCoroutine(nameof(AttackCooldown));
 		StartCoroutine(nameof(SetIsAttacking));
@@ -111,25 +137,31 @@ public class PlayerCombat : Damageable
 		_isOnCD = false;
 	}
 
-	private IEnumerator ControlsCooldown()
+	private IEnumerator ReturnToTheSafeSpot()
 	{
 		PlayerLinks.instance.PlayerMovement.Rigidbody.Sleep();
 		PlayerLinks.instance.PlayerMovement.enabled = false;
 		yield return new WaitForSeconds(0.2f);
+		transform.position = PlayerLinks.instance.PlayerMovement.LastSafeSpot;
 		PlayerLinks.instance.PlayerMovement.enabled = true;
 		PlayerLinks.instance.PlayerMovement.Rigidbody.WakeUp();
 	}
 
 
+	public void StartMissIns() => _missIns.start();
+	public void StartAttackIns() => _attackIns.start();
+
 	public void SetMaxHP(float amount) 
     {
 		MaxHP = amount;
 		HP = amount;
+		_healedIns.start();
     }
 
 	protected override void Death()
     {
         base.Death();
+		_deathIns.start();
 		PlayerLinks.instance.PlayerAnimator.SetDeathState();
 
 		PlayerLinks.instance.PlayerAnimator.enabled = false;

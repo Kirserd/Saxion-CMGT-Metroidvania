@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using FMODUnity;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
@@ -7,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 	public PlayerData Data;
 
 	#region COMPONENTS
-    public Rigidbody2D Rigidbody { get; private set; }
+	public Rigidbody2D Rigidbody { get; private set; }
 	public PlayerAnimator AnimatorHandler { get; private set; }
 
 	#endregion
@@ -51,6 +53,17 @@ public class PlayerMovement : MonoBehaviour
 
 	#endregion
 
+	#region SOUNDS
+	[Header("Sounds")]
+	public EventReference DashRef, FootstepsRef, JumpRef, LandRef, UmbrellaRef, WallJumpRef;
+	private FMOD.Studio.EventInstance _dashIns, _footstepsIns, _jumpIns, _landIns, _umbrellaIns, _wallJumpIns;
+	[Space(5)]
+	private float _stepCounter;
+	[SerializeField]
+	private float _stepPredicate;
+	[Space(20)]
+	#endregion
+
 	#region CHECK PARAMETERS
 	[Header("Checks")] 
 	[SerializeField] private Transform _groundCheckPoint;
@@ -68,6 +81,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
 	{
+		#region INIT SOUNDS
+		_dashIns = FMODUnity.RuntimeManager.CreateInstance(DashRef);
+		_footstepsIns = FMODUnity.RuntimeManager.CreateInstance(FootstepsRef);
+		_jumpIns = FMODUnity.RuntimeManager.CreateInstance(JumpRef);
+		_umbrellaIns = FMODUnity.RuntimeManager.CreateInstance(UmbrellaRef);
+		_wallJumpIns = FMODUnity.RuntimeManager.CreateInstance(WallJumpRef);
+		_landIns = FMODUnity.RuntimeManager.CreateInstance(LandRef);
+		#endregion
+
 		Rigidbody = GetComponent<Rigidbody2D>();
 		AnimatorHandler = GetComponent<PlayerAnimator>();
 	}
@@ -122,17 +144,42 @@ public class PlayerMovement : MonoBehaviour
 		#region COLLISION CHECKS
 		if (!IsDashing && !IsJumping)
 		{
-			if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
+			Collider2D groundCollider = Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer);
+			if (groundCollider)
 			{
-				if(LastOnGroundTime < -0.1f)
+				if (LastOnGroundTime < -0.1f)
+				{
+					_landIns.start();
 					AnimatorHandler._justLanded = true;
+				}
 
 				_jumpsLeft = Data.JumpAmount;
 				LastOnGroundTime = Data.CoyoteTime;
 
 				if(Rigidbody.velocity.y == 0)
 					LastSafeSpot = transform.position;
-            }		
+
+                #region FOOTSTEPS
+                switch (groundCollider.tag.ToString())
+                {
+					case "Metal":
+						_footstepsIns.setParameterByName("Dirt", 0.0f);
+						_footstepsIns.setParameterByName("Metal", 0.7f);
+						_footstepsIns.setParameterByName("Sand", 0.0f);
+						break;
+					case "Dirt":
+						_footstepsIns.setParameterByName("Dirt", 0.4f);
+						_footstepsIns.setParameterByName("Metal", 0.0f);
+						_footstepsIns.setParameterByName("Sand", 0.2f);
+						break;
+					default:
+						_footstepsIns.setParameterByName("Dirt", 0.2f);
+						_footstepsIns.setParameterByName("Metal", 0.4f);
+						_footstepsIns.setParameterByName("Sand", 0.1f);
+						break;
+                }
+				#endregion
+			}		
 
 			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)
 				|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)) && !IsWallJumping)
@@ -280,7 +327,18 @@ public class PlayerMovement : MonoBehaviour
 			if (IsWallJumping)
 				Run(Data.WallJumpRunLerp);
 			else
+			{
+				if (Rigidbody.velocity.x != 0 && LastOnGroundTime == Data.CoyoteTime)
+				{
+					_stepCounter += Time.fixedDeltaTime;
+					if (_stepCounter >= _stepPredicate)
+					{
+						_footstepsIns.start();
+						_stepCounter = 0;
+					}
+				}
 				Run(1);
+			}
 		}
 		else if (_isDashAttacking)
 			Run(Data.DashEndRunLerp);
@@ -300,7 +358,11 @@ public class PlayerMovement : MonoBehaviour
 
 	public void OnDashInput() => LastPressedDashTime = Data.DashInputBufferTime;
 
-	public void OnGlideInput() => IsGliding = LastPressedJumpTime <= 0;
+	public void OnGlideInput() 
+	{ 
+		IsGliding = LastPressedJumpTime <= 0;
+		_umbrellaIns.start(); 
+	}
 	public void OnGlideStopInput() => IsGliding = false;
 	#endregion
 
@@ -378,6 +440,7 @@ public class PlayerMovement : MonoBehaviour
 			force -= Rigidbody.velocity.y;
 
 		Rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+		_jumpIns.start();
 		#endregion
 	}
 
@@ -399,6 +462,7 @@ public class PlayerMovement : MonoBehaviour
 			force.y -= Rigidbody.velocity.y;
 
 		Rigidbody.AddForce(force, ForceMode2D.Impulse);
+		_wallJumpIns.start();
 		#endregion
 	}
 	#endregion
@@ -406,6 +470,8 @@ public class PlayerMovement : MonoBehaviour
 	#region DASH
 	private IEnumerator StartDash(Vector2 dir)
 	{
+		_dashIns.start();
+
 		LastOnGroundTime = 0;
 		LastPressedDashTime = 0;
 

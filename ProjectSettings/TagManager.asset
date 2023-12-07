@@ -8,6 +8,9 @@ TagManager:
   - Messages
   - Enemy
   - DialogueBox
+  - DamagingTiles
+  - Dirt
+  - Metal
   layers:
   - Default
   - TransparentFX

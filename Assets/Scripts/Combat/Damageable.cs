@@ -56,6 +56,9 @@ public class Damageable : MonoBehaviour, IDamageable
         if (attack is null || !attack.IsDealingDamageTo(gameObject))
             return;
 
+        if (attack.Owner.tag == "Player")
+            PlayerLinks.instance.PlayerCombat.StartAttackIns();
+
         DealDamage(attack.DamageAmount, collision.transform.position);
         attack.AddDamageMask(collision.gameObject);
         attack.OnAttackLanded?.Invoke(attack.transform.rotation.eulerAngles.z);
