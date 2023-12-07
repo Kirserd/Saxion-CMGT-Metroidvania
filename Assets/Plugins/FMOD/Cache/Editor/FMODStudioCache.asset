@@ -1369,7 +1369,7 @@ MonoBehaviour:
   - {fileID: 2964843972799280930}
   StringsBanks:
   - {fileID: 2705313159298491877}
-  cacheTime: 638375497198668778
+  cacheTime: 638375510363885136
   cacheVersion: 131607
 --- !u!114 &99172260507120413
 MonoBehaviour:
@@ -2036,10 +2036,10 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Background_Music.bank
   Name: Background_Music
   StudioPath: bank:/Background_Music
-  lastModified: 638375497198488616
+  lastModified: 638375510363885136
   FileSizes:
   - Name: Desktop
-    Value: 2707520
+    Value: 2710304
   Exists: 1
 --- !u!114 &5791882045708117316
 MonoBehaviour:
