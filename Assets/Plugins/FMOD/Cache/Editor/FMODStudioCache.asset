@@ -1172,7 +1172,8 @@ MonoBehaviour:
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 5649145272020528855}
   MinDistance: 1
   MaxDistance: 20
   Length: 25600
@@ -1364,12 +1365,13 @@ MonoBehaviour:
   - {fileID: 386104837166321526}
   - {fileID: 1066801607798435846}
   - {fileID: 4096882200486005178}
+  - {fileID: 6870902776410342562}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2964843972799280930}
   StringsBanks:
   - {fileID: 2705313159298491877}
-  cacheTime: 638375527408103334
+  cacheTime: 638375544817482725
   cacheVersion: 131607
 --- !u!114 &99172260507120413
 MonoBehaviour:
@@ -1445,10 +1447,11 @@ MonoBehaviour:
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 8126840377446582030}
   MinDistance: 1
   MaxDistance: 20
-  Length: 13714
+  Length: 4500
 --- !u!114 &464909991430070765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1689,10 +1692,10 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638375516538052955
+  lastModified: 638375540915428304
   FileSizes:
   - Name: Desktop
-    Value: 5252
+    Value: 5340
   Exists: 1
 --- !u!114 &2964843972799280930
 MonoBehaviour:
@@ -1709,7 +1712,7 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638375516538042949
+  lastModified: 638375540915408284
   FileSizes:
   - Name: Desktop
     Value: 6966
@@ -2001,6 +2004,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 14769
+--- !u!114 &5649145272020528855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MirrorMazeTheme/Fade
+  m_EditorClassIdentifier: 
+  Name: Fade
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3926028563
+    data2: 3891757724
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &5710018198093327726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2036,10 +2063,10 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/Background_Music.bank
   Name: Background_Music
   StudioPath: bank:/Background_Music
-  lastModified: 638375526389582545
+  lastModified: 638375544817482725
   FileSizes:
   - Name: Desktop
-    Value: 2708000
+    Value: 2710432
   Exists: 1
 --- !u!114 &5791882045708117316
 MonoBehaviour:
@@ -2161,6 +2188,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &6870902776410342562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/CITY/IntroToRooms
+  m_EditorClassIdentifier: 
+  Path: event:/CITY/IntroToRooms
+  Guid:
+    Data1: 428930347
+    Data2: 1196668066
+    Data3: -1261421175
+    Data4: 1370147773
+  Banks:
+  - {fileID: 8933240237806484107}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4007
 --- !u!114 &6873830639894649196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2256,6 +2310,30 @@ MonoBehaviour:
   ID:
     data1: 2697965217
     data2: 3935747536
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &8126840377446582030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/WaterTowerTheme/Fade
+  m_EditorClassIdentifier: 
+  Name: Fade
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3926028563
+    data2: 3891757724
   Type: 0
   IsGlobal: 0
   Labels: []
@@ -2400,10 +2478,10 @@ MonoBehaviour:
   Path: FMOD/Fmod_Proj_MetroidVania/Build/Desktop/City.bank
   Name: City
   StudioPath: bank:/City
-  lastModified: 638375516537402365
+  lastModified: 638375532854450764
   FileSizes:
   - Name: Desktop
-    Value: 4059840
+    Value: 4104448
   Exists: 1
 --- !u!114 &8979862471468955289
 MonoBehaviour:
